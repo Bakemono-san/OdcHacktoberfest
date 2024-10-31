@@ -1,4 +1,37 @@
-<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Inscription Élégant</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="form-wrapper">
+            <h1>Inscription</h1>
+            <form id="signupForm">
+                <div class="form-group">
+                    <input type="text" id="nom" name="nom" required>
+                    <label for="nom">Nom</label>
+                    <span class="error-message" id="nom-error"></span>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                    <span class="error-message" id="email-error"></span>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" required>
+                    <label for="password">Mot de passe</label>
+                    <span class="error-message" id="password-error"></span>
+                </div>
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
 
 <div class="overflow-x-auto">
@@ -258,3 +291,6 @@
     <li><a>lg item 1</a></li>
     <li><a>lg item 2</a></li>
   </ul>
+    <script src="script.js"></script>
+</body>
+</html>
