@@ -1,22 +1,21 @@
-document.getElementById('signupForm').addEventListener('submit', function(event) {
+document.getElementById('modernForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    
-    // Validations en direct
-    const nom = document.getElementById('nom');
+
+    const username = document.getElementById('username');
     const email = document.getElementById('email');
     const password = document.getElementById('password');
-    const nomError = document.getElementById('nom-error');
+    const usernameError = document.getElementById('username-error');
     const emailError = document.getElementById('email-error');
     const passwordError = document.getElementById('password-error');
 
     let isValid = true;
 
-    if (nom.value.trim() === "") {
-        nomError.textContent = "Le nom est requis";
-        nomError.style.display = "block";
+    if (username.value.trim() === "") {
+        usernameError.textContent = "Le nom d'utilisateur est requis";
+        usernameError.style.display = "block";
         isValid = false;
     } else {
-        nomError.style.display = "none";
+        usernameError.style.display = "none";
     }
 
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
@@ -28,8 +27,8 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
         emailError.style.display = "none";
     }
 
-    if (password.value.length < 6) {
-        passwordError.textContent = "Le mot de passe doit contenir au moins 6 caractères";
+    if (password.value.length < 8) {
+        passwordError.textContent = "Le mot de passe doit contenir au moins 8 caractères";
         passwordError.style.display = "block";
         isValid = false;
     } else {
