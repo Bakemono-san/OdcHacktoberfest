@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/456180ef81.js" crossorigin="anonymous"></script>
+    <title>Formulaire d'inscription 1 </title>
+</head>
+<body>
+    <div class="container">
+        <h1>Création de compte</h1>
+        <form action="" class="formulaire">
+            <div class="name">
+                <div class="champ">
+                    <input type="text" name="nom" id="nom" placeholder="Nom">
+                    <!-- <i class="fa-regular fa-user" style="color: #ffffff;"></i> -->
+                    <span class="error-message" id="nom-error"></span>
+                </div>
+                <div class="champ">
+                    <input type="text" name="prenom" id="prenom" placeholder="Prénom">
+                    <!-- <i class="fa-regular fa-user" style="color: #ffffff;"></i> -->
+                    <span class="error-message" id="prenom-error"></span>
+                </div>
+            </div>
+            <div class="champ">
+                <input type="email" name="email" id="email" placeholder="Email">
+                <span class="error-message" id="email-error"></span>
+            </div>
+            <div class="champ">
+                <input type="password" name="password" id="password" placeholder="Mot de passe">
+                <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
+                <span class="error-message" id="password-error"></span>
+            </div>
+            <div class="champ">
+                <input type="password" name="confirmer_mot_de_passe" id="confirmerMdp" placeholder="Confirmer mot de passe">
+                <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
+                <span class="error-message" id="confirmerMdp-error"></span>
+            </div>
+            <div class="champ">
+                <button type="button">S'inscrire</button>
+            </div>
+        </form>
+        <div class="bubbles"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
