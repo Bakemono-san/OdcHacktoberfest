@@ -1,4 +1,5 @@
-document.getElementById('modernForm').addEventListener('submit', function(event) {
+
+document.getElementById('elegantForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const username = document.getElementById('username');
@@ -10,6 +11,7 @@ document.getElementById('modernForm').addEventListener('submit', function(event)
 
     let isValid = true;
 
+    // Validate username
     if (username.value.trim() === "") {
         usernameError.textContent = "Le nom d'utilisateur est requis";
         usernameError.style.display = "block";
@@ -18,6 +20,7 @@ document.getElementById('modernForm').addEventListener('submit', function(event)
         usernameError.style.display = "none";
     }
 
+    // Validate email
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
     if (!emailPattern.test(email.value)) {
         emailError.textContent = "Veuillez entrer un email valide";
@@ -27,6 +30,7 @@ document.getElementById('modernForm').addEventListener('submit', function(event)
         emailError.style.display = "none";
     }
 
+    // Validate password
     if (password.value.length < 8) {
         passwordError.textContent = "Le mot de passe doit contenir au moins 8 caractères";
         passwordError.style.display = "block";
@@ -35,6 +39,7 @@ document.getElementById('modernForm').addEventListener('submit', function(event)
         passwordError.style.display = "none";
     }
 
+    // If valid, reset the form
     if (isValid) {
         alert("Inscription réussie !");
         this.reset();
