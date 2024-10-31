@@ -1,58 +1,43 @@
-document.getElementById('inscriptionForm').addEventListener('submit', function(event) {
+document.getElementById('signupForm').addEventListener('submit', function(event) {
     event.preventDefault();
+    
+    // Validations en direct
+    const nom = document.getElementById('nom');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const nomError = document.getElementById('nom-error');
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
 
-    const nom = document.getElementById('nom').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const motdepasse = document.getElementById('motdepasse').value.trim();
+    let isValid = true;
 
-    let hasError = false;
-    clearErrors();
-
-    if (nom === "") {
-        showError('nom', "Le nom est requis.");
-        hasError = true;
+    if (nom.value.trim() === "") {
+        nomError.textContent = "Le nom est requis";
+        nomError.style.display = "block";
+        isValid = false;
+    } else {
+        nomError.style.display = "none";
     }
 
-    if (email === "") {
-        showError('email', "L'email est requis.");
-        hasError = true;
-    } else if (!validateEmail(email)) {
-        showError('email', "L'email n'est pas valide.");
-        hasError = true;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
+    if (!emailPattern.test(email.value)) {
+        emailError.textContent = "Veuillez entrer un email valide";
+        emailError.style.display = "block";
+        isValid = false;
+    } else {
+        emailError.style.display = "none";
     }
 
-    if (motdepasse === "") {
-        showError('motdepasse', "Le mot de passe est requis.");
-        hasError = true;
-    } else if (motdepasse.length < 8) {
-        showError('motdepasse', "Le mot de passe doit contenir au moins 8 caractères.");
-        hasError = true;
+    if (password.value.length < 6) {
+        passwordError.textContent = "Le mot de passe doit contenir au moins 6 caractères";
+        passwordError.style.display = "block";
+        isValid = false;
+    } else {
+        passwordError.style.display = "none";
     }
 
-    if (!hasError) {
-        console.log('Nom:', nom);
-        console.log('Email:', email);
-        console.log('Mot de passe:', motdepasse);
-
-        document.getElementById('inscriptionForm').reset();
+    if (isValid) {
         alert("Inscription réussie !");
+        this.reset();
     }
 });
-
-function showError(field, message) {
-    const inputField = document.getElementById(field);
-    const errorMessage = document.createElement('div');
-    errorMessage.className = 'error-message';
-    errorMessage.style.color = "red";
-    errorMessage.textContent = message;
-    inputField.parentElement.appendChild(errorMessage);
-}
-
-function clearErrors() {
-    document.querySelectorAll('.error-message').forEach(el => el.remove());
-}
-
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
