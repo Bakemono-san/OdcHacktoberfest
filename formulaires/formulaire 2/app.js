@@ -1,9 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const nomInput = document.getElementById('nom');
-    const prenomInput = document.getElementById('prenom');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
-    const confirmPasswordInput = document.getElementById('confirmerMdp');
     const submitButton = document.querySelector('button');
 
     submitButton.addEventListener('click', function () {
@@ -11,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alert('Formulaire soumis avec succès');
         }
     });
-    
+     
     // création des bulles // 
     const body = document.querySelector('body');
     const bubblesContainer = document.createElement('div');
@@ -34,30 +31,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function validateForm() {
         resetStyles();
         resetErrorMessages();
-
-        const nom = nomInput.value.trim();
-        const prenom = prenomInput.value.trim();
+        
         const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
-        const confirmPassword = confirmPasswordInput.value.trim();
         let hasError = false;
 
         /* -------------- Error Check  -------------- */
 
-        if (nom === '') {
-            setError(nomInput, "Veuillez saisir votre nom");
-            hasError = true;
-        } else if (nom.length < 5 || nom.length > 30) {
-            setError(nomInput, "Votre nom doit contenir entre 5 et 30 caractères");
-            hasError = true;
-        }
-        if (prenom === '') {
-            setError(prenomInput, "Veuillez saisir votre prénom");
-            hasError = true;
-        } else if (prenom.length < 5 || prenom.length > 30) {
-            setError(prenomInput, "Votre prénom doit contenir entre 5 et 30 caractères");
-            hasError = true;
-        }
+        
         if (email === '') {
             setError(emailInput, "Veuillez saisir votre email");
             hasError = true;
@@ -70,15 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
             hasError = true;
         } else if (password.length < 8 || password.length > 50) {
             setError(passwordInput, "Votre mot de passe doit contenir entre 8 et 50 caractères");
-            hasError = true;
-        }
-        if (confirmPassword === '') {
-            setError(confirmPasswordInput, "Veuillez confirmer le mot de passe");
-            hasError = true;
-        }
-        if (password !== confirmPassword) {
-            setError(passwordInput, "Les mots de passe ne correspondent pas");
-            setError(confirmPasswordInput, "Les mots de passe ne correspondent pas");
             hasError = true;
         }
       
